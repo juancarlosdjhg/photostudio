@@ -1,0 +1,175 @@
+<?php
+session_start();
+
+
+/*
+if(isset($_POST["reportepara"])){
+	
+	$consulta_avanzada="";
+		$_SESSION['numlabor']=0;
+		$_SESSION['sql']="";	
+		$_SESSION['ordenar']="";
+			
+
+		if(isset($_POST["cond"])) { // si hay condiciones.
+			
+			$da=$_POST["cond"];
+				
+				 $numeros="";
+				 
+		for($i=0;$i<count($da);$i++) {
+			
+			if($i==count($da)-1)
+			
+				$numeros=$numeros."$da[$i]";
+				
+					else 
+					
+						$numeros=$numeros."$da[$i],";
+						
+ 								}
+ 					 					
+ 					
+		$consulta_avanzada=$consulta_avanzada." and id_condicion_contrato in($numeros)";		
+					
+						 }
+						 
+				
+						 
+	if(isset($_POST["cate"])) { // si hay categorias.
+			
+			$da=$_POST["cate"];
+				
+				 $numeros="";
+				 
+		for($i=0;$i<count($da);$i++) {
+			
+			if($i==count($da)-1)
+			
+				$numeros=$numeros."$da[$i]";
+				
+					else 
+					
+						$numeros=$numeros."$da[$i],";
+						
+ 								}
+ 					 					
+ 					
+		$consulta_avanzada=$consulta_avanzada." and id_categoria in($numeros)";		
+					
+						 }
+						 
+				if(isset($_POST["dedica"])) { // si hay categorias.
+			
+			$da=$_POST["dedica"];
+				
+				 $numeros="";
+				 
+		for($i=0;$i<count($da);$i++) {
+			
+			if($i==count($da)-1)
+			
+				$numeros=$numeros."$da[$i]";
+				
+					else 
+					
+						$numeros=$numeros."$da[$i],";
+						
+ 								}
+ 					 					
+ 					
+		$consulta_avanzada=$consulta_avanzada." and id_dedicacion in($numeros)";		
+					
+						 }	
+						 
+						 					 
+	if(isset($_POST["forma"])) { // si hay formaciones.
+			
+			$da=$_POST["forma"];
+				
+				 $numeros="";
+				 
+		for($i=0;$i<count($da);$i++) {
+			
+			if($i==count($da)-1)
+			
+				$numeros=$numeros."$da[$i]";
+				
+					else 
+					
+						$numeros=$numeros."$da[$i],";
+						
+ 								}
+ 					 					
+ 					
+		$consulta_avanzada=$consulta_avanzada." and id_formacion in($numeros)";		
+					
+						 }
+						 
+						 
+		if(isset($_POST["vivienda"])) { // si hay condiciones.
+			
+			$da=$_POST["vivienda"];
+				
+				 $numeros="";
+				 
+		for($i=0;$i<count($da);$i++) {
+			
+			if($i==count($da)-1)
+			
+				$numeros=$numeros."$da[$i]";
+				
+					else 
+					
+						$numeros=$numeros."$da[$i],";
+						
+ 								}
+ 					 					
+ 					
+		$consulta_avanzada=$consulta_avanzada." and id_vivienda in($numeros)";		
+					
+						 }
+		
+		
+						 
+	if(isset($_POST["lugar"])) { // si hay formaciones.
+			
+			$da=$_POST["lugar"];
+				
+				 $numeros="";
+				 
+		for($i=0;$i<count($da);$i++) {
+			
+			if($i==count($da)-1)
+			
+				$numeros=$numeros."$da[$i]";
+				
+					else 
+					
+						$numeros=$numeros."$da[$i],";
+						
+ 								}
+ 					 					
+ 					
+		$consulta_avanzada=$consulta_avanzada." and id_formacion in($numeros)";		
+					
+							$_SESSION['numlabor']=count($_POST['lugar']);
+							
+							 }
+						
+						
+					if($_POST['oby']!='seleccione'){	
+					$_SESSION['ordenar']=" order by $_POST[oby]";
+				}
+			$_SESSION['sql']=$consulta_avanzada;	
+			
+			$_SESSION['parametrizado']=true;
+					
+				echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=reporte1.php'>";	
+	
+
+ 
+}	
+		*/						
+								
+?>

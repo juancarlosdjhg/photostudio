@@ -1,0 +1,37 @@
+<?php
+//Datos de conexión
+include('../BD.php');
+conectar();
+
+// defino una clase que voy a utilizar para generar los elementos que voy a devolver
+// como respuesta
+class ElementosDevolver {
+   var $nombre;
+   var $apellido;
+ var $total;
+   
+   function __construct($nombre, $apellido,$total){
+      $this->nombre = $nombre;
+      $this->apellido = $apellido;
+	$this->total=$total;
+   }
+}
+
+$doc = $_POST['documento'];
+
+$sql = mysql_query("SELECT nombre_pro, existencia_pro, total  FROM producto WHERE codigo_pro='$doc'");
+
+//creo el array de los elementos a devolver
+$arrayElementos = array();
+
+while($fila = mysql_fetch_array($sql)){
+  
+	array_push($arrayElementos, new ElementosDevolver(utf8_encode($fila["nombre_pro"]), $fila["existencia_pro"],$fila["total"]));
+
+}
+
+echo $retorno = json_encode($arrayElementos);
+
+
+
+?>

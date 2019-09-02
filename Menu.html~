@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Sistema de Información</title>
+<link rel="icon" type="image/png" href="web/images/favicon.png" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<link href="web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="web/js/jquery.min.js"></script>
+<link type="text/css" rel="stylesheet" href="web/css/JFGrid.css" />
+<link type="text/css" rel="stylesheet" href="web/css/JFFormStyle-1.css" />		<script type="text/javascript" src="web/js/JFCore.js"></script>
+		<script type="text/javascript" src="web/js/JFForms.js"></script>
+		<script type="text/javascript" src="../nicEdit.js"></script> 
+		<script type="text/javascript">
+			(function() {
+				JC.init({
+					domainKey: ''
+				});
+				})();
+		</script>
+<!--nav-->
+<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+</script>
+</head>
+<body>
+<div class="cintillo">
+<center><img id="cintillo" height="55px" width="1000px" src="web/images/cintillo.png"></center>
+</div>
+<!-- start header -->
+<div class="header_bg">
+<div class="wrap">
+	<div class="header">
+		<div class="logo">
+			<a href="Menu.html"><img src="web/images/logo.png" alt=""></a>
+		</div>
+		<div class="h_right">
+			<!--start menu -->
+			<font size="6" color="white" >Sistema de Información</font><br>
+			<ul class="menu">
+				
+				<li><a href="php/about.html">Acerca de</a></li> <font color="orange">|</font>
+				<li ><a href="php/contact.html">Contáctanos</a></li>  <font color="orange">|</font>
+				<li><a href="index.html">Salir del Sistema</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+			<!-- start profile_details -->
+					<form class="style-1 drp_dwn">
+						<div class="row">
+							<div class="grid_3 columns">
+							</div>		
+						</div>		
+					</form>
+		</div>
+		<div class="main" align="center">
+		
+				
+				<ul align="center" class="desplegable">
+				
+					<li><a href="">Gestionar >></a>
+				<ul class="desplegable2">
+						<li><a href="php/ConsultarEmpleado.php">Empleados</a></li>
+						<li><a href="php/consultarBeneficiario.php">Beneficiarios</a></li>
+				</ul></li>
+						<li><a href="">Reportes >></a>
+					<ul class="desplegable2">
+						<li><a href="php/reporte1.php">Todos</a></li>
+					</ul>
+				</li> 
+				</ul>
+			
+				
+			
+				</center>
+	</div>
+		<div class="clear"></div>
+		<div class="top-nav">
+		<nav class="clearfix">
+	
+			</nav>
+		</div>
+	</div>
+</div>
+</div>
+<!--start main -->
+
+<div class="main_bg2">
+<center><font color="#555" size="6" class="cedula">Menú Principal</font>
+<div class="wrap"><br><br>
+<img src="web/images/a.jpg" width="40%">	
+</div>
+</div>		
+<!--start main -->
+
+<div class="footer_bg">
+<div class="wrap">
+
+<div class="footer">
+	<font color="gray" size="2"><center>SIGETRA - Instituto Universitario de Tecnología de Yaracuy</center></font>
+			</div>
+			<div class="soc_icons">
+				<ul>
+					<hr color="orange">
+					<div class="clear"></div>
+				</ul>	
+			</div>
+			<div class="clear"></div>
+</div>
+</div>	
+</body>
+</html>

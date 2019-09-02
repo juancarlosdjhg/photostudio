@@ -1,0 +1,92 @@
+<?php
+session_start();
+require_once("dompdf_config.inc.php");
+include('../php/BD.php');
+conectar();
+
+
+$fecha=date('d-m-Y');
+		$order="";
+			$sql=$_SESSION['sql'];
+			$order=$_SESSION['orde'];
+			$columnaLugar=0;
+			
+			$columnaLugar=$_SESSION['numlabor'];
+
+		$resp=mysql_query("SELECT persona.cedula as id ,empleado.email as correo, empleado.telefono as cel, concat(persona.nombres , ' ', persona.apellidos ) as datos ,lugar_labor.nombre_lugar_labor as lugar FROM empleado,persona,lugar_labor WHERE persona.id_persona=empleado.id_persona and empleado.id_lugar_labor=lugar_labor.id_lugar_labor $sql  $order");
+
+			$num=0;
+
+			$num = mysql_num_rows($resp);
+	$lista=""; 
+	while($registro=mysql_fetch_array($resp) ){
+
+
+				
+				$hijos=mysql_query("select count(*) as hijos from hijo where id_empleado=(select id_empleado from empleado where id_persona=(select id_persona from persona where cedula=$registro[id]))");
+			 		$num=mysql_fetch_array($hijos);
+			 		$numHijo=$num["hijos"];
+			 		
+		 		 		
+			 			 $a="<tr align='left' >
+		    			  <td >".$registro['id']."</td>
+		    			  <td >".$registro['datos']."</td>
+		    			  <td >".$numHijo."</td>
+		    			  <td >".$registro['correo']."</td>
+		    			  <td >".$registro['cel']."</td>
+						<td >".$registro['lugar']."</td>
+							
+									</tr>";
+									
+				
+				
+						$lista=$lista.$a;										
+							
+			}
+
+		
+
+
+$html =
+"<html><body><center>
+<br><br><br>
+<table align='center' border='1'>
+<tr><th><font color='blue' size='15'>
+REPORTE DE EMPLEADOS
+</th></tr>
+<tr><td>
+Fecha de Emision: ".$fecha."<font color='blue'></font>
+</tr>
+</table ><br><br><br><br>
+
+		<table cellspadding='4' align='center' width='95%'>
+          <tr align='left' >
+		      <td  bgcolor=#E0FFFF width='10%'><b>C&eacute;dula</td>
+		        <td bgcolor=#E0FFFF ><b>Nombres y Apellidos</td>
+		                <td bgcolor=#E0FFFF width='2%'><b>N&uacute;mero de Hijos</td><td bgcolor=#E0FFFF width='18%'><b>Correo</td><td bgcolor=#E0FFFF width='15%'><b>Tel&eacute;fono</td><td bgcolor=#E0FFFF width='15%'><b>Lugar</td>
+			  				  </tr>
+			<tr align='left'><td colspan='5' >-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td></tr>
+
+		
+			".$lista."
+<br><br><tr align='left'><td colspan='5' >------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td></tr>
+
+</table> <br><br><br><br><br><br><br><br><br>
+
+	
+
+					</center>
+
+</p>
+</body></html>";
+ini_set("memory_limit","32M");   
+$dompdf = new DOMPDF();
+
+$dompdf->load_html($html);
+$dompdf->set_paper("letter","landscape");
+$dompdf->render();
+$dompdf->stream("rep_empleados.pdf");
+
+
+
+?>

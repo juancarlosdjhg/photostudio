@@ -1,0 +1,31 @@
+<?php
+ /*
+     Example13: A 2D exploded pie graph
+ */
+
+ // Standard inclusions   
+ include("pChart/pData.class");
+ include("pChart/pChart.class");
+
+ // Dataset definition 
+ $DataSet = new pData;
+ $DataSet->AddPoint(array(10,2,3,5,3,4,12),"Serie1");
+ $DataSet->AddPoint(array("Jan","Feb","Mar","Apr","May","dec","nov"),"Serie2");
+ $DataSet->AddAllSeries();
+ $DataSet->SetAbsciseLabelSerie("Serie2");
+
+ // Initialise the graph
+ $Test = new pChart(550,400);
+ $Test->setFontProperties("Fonts/tahoma.ttf",15);
+
+
+ // Draw the pie chart
+ $Test->AntialiasQuality = 0;
+ $Test->setShadowProperties(2,2,200,200,200);
+ $Test->drawFlatPieGraphWithShadow($DataSet->GetData(),$DataSet->GetDataDescription(),220,200,160,PIE_PERCENTAGE,8);
+ $Test->clearShadow();
+
+ $Test->drawPieLegend(450,30,$DataSet->GetData(),$DataSet->GetDataDescription(),250,250,250);
+
+ $Test->Render("example13.png");
+?>
